@@ -16,10 +16,11 @@ class _HomeScreenState extends State<HomeScreen> {
         body: SafeArea(
       child: Column(children: [
         Container(
-          padding: EdgeInsets.only(top: 20, left: 10, right: 10),
-          child: const Row(
+          padding: EdgeInsets.only(top: 20, left: 15, right: 15),
+          child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Column(
+              const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
@@ -39,6 +40,18 @@ class _HomeScreenState extends State<HomeScreen> {
                         fontWeight: FontWeight.w500),
                   ),
                 ],
+              ),
+              Container(
+                height: 60,
+                width: 60,
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(26, 146, 146, 146),
+                  borderRadius: BorderRadius.circular(16)
+                ),
+                child: const Image(image: AssetImage('assets/images/bell.png'),
+                height: 30,
+                width: 30,
+                ),
               )
             ],
           ),
