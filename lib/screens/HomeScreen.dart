@@ -173,6 +173,57 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             )
           ]),
-        ));
+
+
+        ),
+
+        );
+  }
+}
+
+
+class NavigationBar extends StatefulWidget {
+  const NavigationBar({super.key});
+
+  @override
+  State<NavigationBar> createState() => _NavigationBarState();
+}
+
+class _NavigationBarState extends State<NavigationBar> {
+  int _selectedIndex = 0;
+
+  static const  List<Widget> _widgetOptions = [
+    Text('Index 0: Home'),
+    Text('Index 1: Business'),
+    Text('Index 2: School'),
+    Text('Index 3: Settings'),
+  ];
+  void _onItemTapped(int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+      return BottomNavigationBar(
+        items: const <BottomNavigationBarItem>[
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home),
+            label: 'Home',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.business),
+            label: 'Business',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.school),
+            label: 'School',
+          ),
+        ],
+        currentIndex: _selectedIndex,
+        selectedItemColor: Colors.amber[800],
+        onTap: _onItemTapped,
+      );
   }
 }
